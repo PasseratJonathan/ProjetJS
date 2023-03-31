@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/939a47e5b3.js" crossorigin="anonymous"></script>
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<header>
+	<div class="edition">
+		<i class="fa-regular fa-pen-to-square"></i>
+		<p>Mode édition</p>
+		<button>publier les changements</button>
+	</div>
+	<div class="haut-de-page">
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li>projets</li>
+				<li>contact</li>
+				<li><a href="connexion.html">login</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main>
+	<section id="introduction">
+		<figure>
+			<img src="./assets/images/sophie-bluel.png" alt="">
+			<div class="profil">
+				<i class="fa-regular fa-pen-to-square"></i>
+				<p>modifier</p>
+			</div>
+		</figure>
+		<article>
+			<div class="text-profil">
+				<i class="fa-regular fa-pen-to-square"></i>
+				<p>modifier</p>
+			</div>
+			<h2>Designer d'espace</h2>
+			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+		</article>
+	</section>
+	<section id="portfolio">
+		<div class="projets">
+			<h2>Mes Projets</h2>
+			<i class="fa-regular fa-pen-to-square"></i>
+			<a href="#modale" class="btn-modale">modifier</a>
+		</div>
+		<aside id="modale" class="fenetre" aria-hidden="hidden" role="dialog" style="display:none">
+			<div class="modale-window">
+				<button class="btn-close">X</button>
+				<h2>Galerie photo</h2>
+				<div class="gallery-modale" id="allWork">
+				
+				</div>
+				<hr class="solid">
+				<div class="contact" id="addPhoto">
+					<input class="connexion" type="submit" value='Ajouter une photo' id="ajoutPhoto">
+				</div>
+				<div id="deleteAllGallery">
+					<a href="javascript:void(0);">supprimer la galerie</a>
+				</div>
+			</div>
+		</aside>
+		<aside class="addFigure" aria-hidden="hidden" role="dialog" style="display:none">
+			<div class="addGalleryModale">
+				<button class="btn-precedent"><svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M20.3459 6.91164H2.14392L7.58919 1.48731C7.84495 1.23155 7.84495 0.817527 7.58919 0.562423C7.33343 0.306666 6.9194 0.306666 6.6643 0.562423L0.188882 7.03724C-0.0629605 7.28908 -0.0629605 7.71028 0.188882 7.96213L6.66436 14.4376C6.92011 14.6934 7.33414 14.6934 7.58924 14.4376C7.845 14.1818 7.845 13.7678 7.58924 13.5127L2.14392 8.21979H20.3459C20.7069 8.21979 20.9999 7.92673 20.9999 7.56571C20.9999 7.2047 20.7069 6.91164 20.3459 6.91164Z" fill="black"/>
+					</svg>
+				</button>
+				<button class="btn-close2">X</button>
+			<h2>Ajout photo</h2>
+			<div class="cadre">
+				<div class="btn-ajouter">
+					<div id="image-container" style="display:none">
+						<img id="uploaded-image">
+					</div>
+					<div class="section-image">
+						<img src="assets/images/image_indisponible.png"><br>
+						<button id="ajouter-photo">+ Ajouter photo</button> <input id="inputFile" type="file" accept="image/png, image/jpeg" name="flan">
+						<p>jpg, png : 4mo max</p>
+					</div>
+				</div>
+				
+			</div>
+			<div class="contact">
+				<form id="center" action="javascript:void(0);" method="post">       
+					<label><b>Titre</b></label>
+					<input id ="titre" type="text" name="titre"> 
+					<label><b>Catégorie</b></label>
+					<select id="categorie" type="text" name="categorie"></select>
+						<hr class="solid-add">
+					<input id="valider-add" type="submit" value='Valider' >
+				</form>
+			</div>
+		</aside>
+		<div class="categorie">
+			<button class="btn categorieClicked">Tous</button>
+			<button class="btn">Objets</button>
+			<button class="btn">Appartements</button>
+			<button class="btn">Hôtels & Restaurants</button>
+		</div>
+
+		<div class="gallery">			
+		</div>
+	</section>
+	<section class="contact">
+		<h2>Contact</h2>
+		<p>Vous avez un projet ? Discutons-en !</p>
+		<form action="#" method="post">
+			<label for="name">Nom</label>
+			<input type="text" name="name" id="name">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" cols="30" rows="10"></textarea>
+			<input type="submit" value="Envoyer">
+		</form>
+	</section>
+</main>
+
+<footer>
+	<nav>
+		<ul>
+			<li>Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
+<script src="js.js"></script>
+</body>
+</html>
