@@ -214,9 +214,6 @@ AjouterphotoBtn.addEventListener("click", () =>
 
 const validerAdd = document.getElementById('valider-add')
 validerAdd.addEventListener('click', async (e) => {
-    e.stopPropagation()
-    e.preventDefault()
-    e.stopImmediatePropagation()
     const image = document.getElementById('inputFile')
 
     const file = image.files[0];        
