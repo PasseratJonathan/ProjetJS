@@ -1,6 +1,5 @@
 async function logIn(connexion) {
     const email = document.querySelector('#e-mail').value
-    console.log("logIn")
     const password = document.querySelector('#password').value
     const compte = {
         "email": email,
@@ -15,7 +14,6 @@ async function logIn(connexion) {
       });
       
       let result = await response.json();   
-      console.log(result)
       return result
 }
 
@@ -26,7 +24,7 @@ document.querySelector('.contact form')
   if('message' in result){
     alert(result.message)
   }
-  if('token' in result && 'userId' in result)
+  else if('token' in result && 'userId' in result)
   {
     window.localStorage.setItem('token', result.token)
     

@@ -1,11 +1,17 @@
 let worksTmp = null
-fetch("http://localhost:5678/api/works")
-.then((response) => response.json())
-.then((works) => {
-printWork(works)
-modaleWorks(works)
-worksTmp = works
-})
+
+function fetchWorks () {
+    fetch("http://localhost:5678/api/works")
+        .then((response) => response.json())
+        .then((works) => {
+            printWork(works)
+            modaleWorks(works)
+            worksTmp = works
+        })
+}
+
+fetchWorks()
+
 function printWork(works) {
     const galerie = document.querySelector(".gallery");
     galerie.innerHTML = ''
@@ -148,8 +154,7 @@ deleteAllModale.addEventListener("click", async () => {
 
     for (modales of allModale.childNodes) {
         if (modales.nodeName === "FIGURE"){
-           // deleteUnWork (modales.firstElementChild.lastChild.id)
-           console.log(modales.firstElementChild.lastChild.id)
+            deleteUnWork (modales.firstElementChild.lastChild.id)
         }
     }
 })
@@ -200,9 +205,13 @@ fermerAjouterPhoto.addEventListener("click", () => {
 });
 
 pagePrecedente.addEventListener("click", () => {
-  fenetrePhoto.style.display = "none";
-  fenetreModale.style.display = "flex";
+    goToPreviousPage()
 });
+
+function goToPreviousPage() {
+    fenetrePhoto.style.display = "none";
+    fenetreModale.style.display = "flex";
+}
 
 const AjouterphotoBtn = document.getElementById("ajouter-photo");
 const inputFileBtn = document.getElementById("inputFile")
@@ -215,7 +224,6 @@ AjouterphotoBtn.addEventListener("click", () =>
 const validerAdd = document.getElementById('valider-add')
 validerAdd.addEventListener('click', async (e) => {
     const image = document.getElementById('inputFile')
-
     const file = image.files[0];        
     const title = document.querySelector('#titre').value
     const category = document.querySelector('#categorie').value
@@ -238,9 +246,12 @@ validerAdd.addEventListener('click', async (e) => {
         },
         body: formData
       });
-      
+
       let result = await response.json();
-}})
+      fetchWorks()
+      goToPreviousPage()
+}
+})
 
 const imageUpload = document.getElementById("inputFile");
 const uploadedImage = document.getElementById("uploaded-image")
